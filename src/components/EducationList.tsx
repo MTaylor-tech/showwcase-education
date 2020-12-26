@@ -5,7 +5,7 @@ import EducationItem from './EducationItem';
 const EducationList = (props: any): JSX.Element => {
   return (
     <React.Fragment>
-      <ul>{props.educations.map((e:Education)=><li key={e.id} onClick={()=>props.setEducation(e)}>{e.name}</li>)}</ul>
+      <ul>{props.educations.map((e:Education)=><li className="ed-list-item" key={e.id} onClick={()=>props.setEducation(e)}>{e.name}</li>)}</ul>
     </React.Fragment>
   );
 };

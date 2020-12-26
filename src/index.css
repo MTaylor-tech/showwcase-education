@@ -218,3 +218,7 @@ ul > li.hover {
 label {
   margin-right: 10px;
 }
+
+.ed-list-item {
+  margin-bottom: 20px;
+}
