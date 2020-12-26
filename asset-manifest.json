@@ -1,20 +1,20 @@
 {
   "files": {
-    "main.css": "/showwcase-education/static/css/main.c7f4c72e.chunk.css",
-    "main.js": "/showwcase-education/static/js/main.6995686c.chunk.js",
-    "main.js.map": "/showwcase-education/static/js/main.6995686c.chunk.js.map",
+    "main.css": "/showwcase-education/static/css/main.9bf8863b.chunk.css",
+    "main.js": "/showwcase-education/static/js/main.a03cdd50.chunk.js",
+    "main.js.map": "/showwcase-education/static/js/main.a03cdd50.chunk.js.map",
     "runtime-main.js": "/showwcase-education/static/js/runtime-main.67641825.js",
     "runtime-main.js.map": "/showwcase-education/static/js/runtime-main.67641825.js.map",
-    "static/js/2.0ca7eddf.chunk.js": "/showwcase-education/static/js/2.0ca7eddf.chunk.js",
-    "static/js/2.0ca7eddf.chunk.js.map": "/showwcase-education/static/js/2.0ca7eddf.chunk.js.map",
+    "static/js/2.540025e0.chunk.js": "/showwcase-education/static/js/2.540025e0.chunk.js",
+    "static/js/2.540025e0.chunk.js.map": "/showwcase-education/static/js/2.540025e0.chunk.js.map",
     "index.html": "/showwcase-education/index.html",
-    "static/css/main.c7f4c72e.chunk.css.map": "/showwcase-education/static/css/main.c7f4c72e.chunk.css.map",
-    "static/js/2.0ca7eddf.chunk.js.LICENSE.txt": "/showwcase-education/static/js/2.0ca7eddf.chunk.js.LICENSE.txt"
+    "static/css/main.9bf8863b.chunk.css.map": "/showwcase-education/static/css/main.9bf8863b.chunk.css.map",
+    "static/js/2.540025e0.chunk.js.LICENSE.txt": "/showwcase-education/static/js/2.540025e0.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.67641825.js",
-    "static/js/2.0ca7eddf.chunk.js",
-    "static/css/main.c7f4c72e.chunk.css",
-    "static/js/main.6995686c.chunk.js"
+    "static/js/2.540025e0.chunk.js",
+    "static/css/main.9bf8863b.chunk.css",
+    "static/js/main.a03cdd50.chunk.js"
   ]
 }
