@@ -1,13 +1,195 @@
+html {
+  height: 100%;
+}
+
 body {
+  height: 100%;
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+  padding: 0;
+  border: 0;
+  outline: 0;
+  vertical-align: baseline;
+  font-size: 16px;
+  overflow-x: hidden;
+  font-family: Inter,"open sans", sans-serif;
+  font-weight: 400;
+  line-height: 21px;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: #000000;
+  overflow-x: auto;
+  overflow-y: scroll;
+}
+
+a, abbr, acronym, address, applet, b, big, blockquote, button, caption, center,
+  cite, code, dd, del, dfn, div, dl, dt, em, fieldset, font, footer, form, h1,
+  h2, h3, h4, h5, h6, header, html, i, iframe, img, ins, kbd, label, legend, li,
+  nav, object, ol, p, pre, q, s, samp, section, small, span, strike, strong,
+  sub, sup, table, tbody, td, tfoot, th, thead, title, tr, tt, u, ul, var {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: 0;
+  vertical-align: baseline;
+  background: transparent;
+}
+
+h1 {
+  font-size: 23px;
+  font-weight: bold;
+  line-height: 27px;
+  margin: 20px 0;
+}
+
+h3 {
+  margin: 10px 0;
+}
+
+h4 {
+  margin: 10px 0;
+  color: grey;
+}
+
+p {
+  margin: 10px 0;
+}
+
+input, textarea, keygen, select, button, meter, progress {
+  writing-mode: horizontal-tb;
+}
+
+button {
+  color: rgb(255, 255, 255);
+  cursor: pointer;
+  display: inline-flex;
+  padding: 7px 12px;
+  position: relative;
+  font-size: 14px;
+  min-height: 37px;
+  align-items: center;
+  font-weight: 600;
+  line-height: 19px;
+  border-top-color: rgb(100, 109, 246);
+  border-top-style: solid;
+  border-top-width: 1px;
+  border-top-left-radius: 4px;
+  border-top-right-radius: 4px;
+  border-bottom-right-radius: 4px;
+  border-bottom-left-radius: 4px;
+  justify-content: center;
+  background-color: rgb(100, 109, 246);
+  margin: 10px;
+  -webkit-appearance: button;
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+li {
+  word-wrap: break-word;
+}
+
+.ReactModal__Overlay {
+    opacity: 0;
+    transition: opacity 2000ms ease-in-out;
+    position: absolute;
+    top: 10vh;
+    background-color: white;
+    z-index: 2;
+    left: 50%;
+    transform: translate(-50%, 0);
+    border-radius: 5px;
+}
+
+.ReactModal__Overlay--after-open{
+    opacity: 1;
+}
+
+.ReactModal__Overlay--before-close{
+    opacity: 0;
+}
+
+.page {
+  opacity: 1;
+  background-color: white;
+  width: 100vw;
+  min-height: 100vh;
+  transition: opacity 1000ms ease-in-out;
+}
+
+.faded {
+  opacity: 0.25;
+  transition: opacity 1000ms ease-in-out;
+}
+
+div.inputStyle {
+  border: 1px solid #fafaff;
+  padding: 10px;
+  background-color: #f9f9f9;
+  border-radius: 5px;
+}
+
+.inputStyle ul > li.hover {
+  background-color: white;
+  font-weight: bold;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+ul > li {
+  list-style: none;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+ul > li.hover {
+  background-color: #f3f3fa;
+  font-weight: bold;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+.select-css {
+	display: inline-block;
+	font-size: inherit;
+	font-family: sans-serif;
+	font-weight: normal;
+	color: #444;
+	max-width: 100%;
+	box-sizing: border-box;
+	margin: 5px 0;
+	border: 1px solid #aaa;
+	box-shadow: 0 1px 0 1px rgba(0,0,0,.04);
+	border-radius: 5px;
+	-moz-appearance: none;
+	-webkit-appearance: none;
+	appearance: none;
+	background-color: #eee;
+  z-index: 5;
+  position: absolute;
+}
+.select-css::-ms-expand {
+	display: none;
+}
+.select-css:hover {
+	border-color: #888;
+}
+.select-css:focus {
+	border-color: #aaa;
+	box-shadow: 0 0 1px 3px rgba(59, 153, 252, .7);
+	box-shadow: 0 0 0 3px -moz-mac-focusring;
+	color: #222;
+	outline: none;
+}
+.select-css ul > li {
+	font-weight:normal;
+}
+.spacer {
+  height: 20px;
+}
+
+label {
+  margin-right: 10px;
 }
