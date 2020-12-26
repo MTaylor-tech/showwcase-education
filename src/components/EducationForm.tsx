@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import { Typeahead } from '@gforge/react-typeahead-ts';
 import axios from 'axios';
+import '../world_universities_and_domains.json';
 
 const DescInput = styled.textarea`
   width: 95%;
@@ -41,17 +42,37 @@ const EducationForm = (props: any): JSX.Element => {
 
   // @ts-ignore
   useEffect(()=>{
-    let mounted = true;
-    axios.get('http://universities.hipolabs.com/search?name='+name)
-      .then(res=>{
-        if (mounted) {
-          setSchools(res.data.map((s:any)=>{
+    // if able to access insecure API, use the following block:
+    // let mounted = true;
+    // axios.get('http://universities.hipolabs.com/search?name='+name)
+    //   .then(res=>{
+    //     if (mounted) {
+    //       setSchools(res.data.map((s:any)=>{
+    //         return s.name;
+    //       }));
+    //     }
+    //   });
+    //return (()=>mounted=false);
+
+    // otherwise, access the json directly:
+    fetch('world_universities_and_domains.json'
+    ,{
+      headers : {
+        'Content-Type': 'application/json',
+        'Accept': 'application/json'
+       }
+    }
+    )
+      .then(function(response){
+        // console.log(response)
+        return response.json();
+      })
+      .then(function(myJson) {
+        // console.log(myJson);
+        setSchools(myJson.map((s:any)=>{
             return s.name;
-          }));
-        }
+        }));
       });
-    // @ts-ignore
-    return (()=>mounted=false);
   },[]);
 
   const submitHandler = (event: React.FormEvent<HTMLFormElement>) => {
@@ -80,7 +101,7 @@ const EducationForm = (props: any): JSX.Element => {
 
   const changeHandler = (event: React.ChangeEvent<HTMLInputElement>) => {
     switch (event.target.name) {
-      case 'nameField':
+      case 'university':
         setName(event.target.value);
         break;
       case 'startYear':
@@ -118,18 +139,22 @@ const EducationForm = (props: any): JSX.Element => {
             {props.education.name}
           </ElementContainer>
           <ElementContainer>
-              <label htmlFor="nameField">Institution Name: </label>
+              <label htmlFor="university" className="nameLabel">Institution Name: </label>
               <Typeahead
-                name="nameField"
+                name="university"
                 value={name}
                 options={schools}
                 className="select-css"
-                maxVisible={4}
+                maxVisible={10}
                 allowCustomValues
                 onOptionSelected={(value?)=>{
                   if (value!=undefined) {
                     setName(value?.toString())
                   }
+                }}
+                customClasses={{
+                  results: 'list-group',
+                  listItem: 'list-group-item'
                 }}
               />
           </ElementContainer>

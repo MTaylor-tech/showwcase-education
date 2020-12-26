@@ -129,6 +129,8 @@ div.inputStyle {
   padding: 10px;
   background-color: #f9f9f9;
   border-radius: 5px;
+  width: 100%;
+  min-width: 100px;
 }
 
 .inputStyle ul > li.hover {
@@ -140,7 +142,7 @@ div.inputStyle {
 
 ul > li {
   list-style: none;
-  overflow-y: auto;
+  overflow-y: hidden;
   overflow-x: hidden;
 }
 
@@ -149,6 +151,27 @@ ul > li.hover {
   font-weight: bold;
   overflow-y: auto;
   overflow-x: hidden;
+}
+
+.nameLabel {
+  margin-bottom: 20px;
+}
+
+.list-group {
+  margin: -10px 0;
+  padding: -10px 0;
+}
+
+.list-group-item {
+  line-height: normal;
+  height: 3em;
+  margin: -10px 0;
+  padding: -10px 0;
+  text-align: left;
+}
+
+.list-group-item:hover {
+  font-weight: bold;
 }
 
 .select-css {
@@ -169,6 +192,8 @@ ul > li.hover {
 	background-color: #eee;
   z-index: 5;
   position: absolute;
+  margin: -10px 0;
+  line-height: normal;
 }
 .select-css::-ms-expand {
 	display: none;
