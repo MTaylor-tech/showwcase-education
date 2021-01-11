@@ -30,7 +30,7 @@ export const emptyEd: Education = {
 };
 
 export const userReducer = (state = initialState, action: Action): UserReducer => {
-  console.log(state, action);
+  console.log(action);
   switch (action.type) {
     case 'INPUT_NAME':
       return {...state,
@@ -42,7 +42,14 @@ export const userReducer = (state = initialState, action: Action): UserReducer =
         educations: [...state.educations, action.payload]};
     case 'UPDATE_EDUCATION':
       return {...state,
-        educations: [...state.educations.map(e=>e.id==action.payload.id?action.payload:e)]};
+        educations: [...state.educations.map(e=>{
+          if (e.id===action.payload.id) {
+            return action.payload;
+          } else {
+            return e;
+          }
+          // e.id==action.payload.id?action.payload:e
+        })]};
     case 'REMOVE_EDUCATION':
       return {...state,
         educations: [...state.educations.filter(e=>e.id!==action.payload)]};

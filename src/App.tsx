@@ -1,5 +1,5 @@
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import {connect} from 'react-redux';
 import Header from './components/Header';
@@ -56,15 +56,31 @@ const App = (props: any): JSX.Element => {
   const [education, setEducation] = useState<Education>(emptyEd);
   const [isNew, setIsNew] = useState<boolean>(true);
   const [showItem, setShowItem] = useState<boolean>(false);
-  const [counter, setCounter] = useState<number>(0);
+  const [counter, setCounter] = useState<number>(1);
 
   const selectItem = (ed: Education) => {
     setEducation(ed);
     setShowItem(true);
   };
 
+  const checkForNew = () => {
+    return isNew;
+  }
+
+  useEffect(()=> {
+    const l = props.educations.length;
+    if (!isNew && education !== undefined && l > 0) {
+      selectItem(education);
+      setCounter(props.educations[l-1].id+1)
+    } else if (l > 0) {
+      selectItem(props.educations[l-1]);
+      setCounter(props.educations[l-1].id+1)
+    } else {
+      setShowItem(false);
+    }
+  },[props.educations]);
+
   const openModal = () => {
-    setCounter(counter+1);
     setIsNew(true);
     setEducation({...emptyEd, id: counter});
     setModalIsOpen(true);
@@ -73,9 +89,11 @@ const App = (props: any): JSX.Element => {
 
   const closeModal = () => {
     setModalIsOpen(false);
-    setCounter(counter+1);
     setPageClass('page');
     setShowItem(false);
+    if (education !== undefined) {
+      setShowItem(true);
+    }
   };
 
   const editEducation = () => {
@@ -88,7 +106,12 @@ const App = (props: any): JSX.Element => {
     setModalIsOpen(false);
     setPageClass('page');
     props.removeEducation(education.id);
-    setShowItem(false);
+    const l = props.educations.length;
+    if (l > 0) {
+      selectItem(props.educations[l-1]);
+    } else {
+      setShowItem(false);
+    }
   };
 
   return (
@@ -115,7 +138,7 @@ const App = (props: any): JSX.Element => {
         </Box>}
         <Box>
           <EducationFormModal
-            isOpen={modalIsOpen} isNew={isNew} counter={counter}
+            isOpen={modalIsOpen} isNew={checkForNew} counter={counter}
             closeModal={closeModal} education={education}
             addEducation={props.addEducation} setEducation={setEducation}
             updateEducation={props.updateEducation}

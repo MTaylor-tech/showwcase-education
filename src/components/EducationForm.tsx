@@ -75,11 +75,16 @@ const EducationForm = (props: any): JSX.Element => {
       });
   },[]);
 
+  useEffect(()=>{
+    if (props.isNew()) {
+      setId(props.counter);
+    } else {
+      setId(props.education.id);
+    }
+  });
+
   const submitHandler = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    if (props.isNew) {
-      setId(props.counter);
-    }
     const ed = {
       id: id,
       name: name,
@@ -91,7 +96,8 @@ const EducationForm = (props: any): JSX.Element => {
       description: description,
       subjects: subjects
     }
-    if (props.isNew) {
+    props.setEducation(ed);
+    if (props.isNew()) {
       props.addEducation(ed);
     } else {
       props.updateEducation(ed);
@@ -187,7 +193,7 @@ const EducationForm = (props: any): JSX.Element => {
           </ElementContainer>
           <ElementContainer>
             <>{' '}</>
-            {props.isNew?<><button type="submit">Add</button></>:
+            {props.isNew()?<><button type="submit">Add</button></>:
               <><button type="submit">Save</button> <button onClick={()=>props.removeEducation(id)}>Delete</button></>}
             <>{' '}</>
             <button onClick={()=>props.closeModal()}>Cancel</button>
